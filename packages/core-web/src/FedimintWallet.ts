@@ -42,6 +42,7 @@ export class FedimintWallet {
    *                         until needed. Default is false.
    *
    * @example
+   * import { FedimintWallet } from '@fedimint/core-web';
    * // Create a wallet with immediate initialization
    * const wallet = new FedimintWallet();
    * wallet.open();

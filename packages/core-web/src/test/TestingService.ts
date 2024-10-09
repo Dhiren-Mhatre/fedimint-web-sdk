@@ -13,11 +13,11 @@ export class TestingService {
   }
 
   getRequestCounter() {
-    return this.client._getRequestCounter()
+    return this.client['requestCounter'] as number
   }
 
   getRequestCallbackMap() {
-    return this.client._getRequestCallbackMap()
+    return this.client['requestCallbacks']
   }
 
   async payWithFaucet(invoice: string) {

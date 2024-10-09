@@ -225,12 +225,4 @@ export class WorkerClient {
     this.initPromise = undefined
     this.requestCallbacks.clear()
   }
-
-  // For Testing
-  _getRequestCounter() {
-    return this.requestCounter
-  }
-  _getRequestCallbackMap() {
-    return this.requestCallbacks
-  }
 }

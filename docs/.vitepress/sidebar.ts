@@ -1,4 +1,5 @@
 import type { DefaultTheme } from 'vitepress'
+import typedocSidebar from '../core/api/typedoc-sidebar.json'
 
 export function getSidebar() {
   return [
@@ -10,6 +11,11 @@ export function getSidebar() {
         { text: 'Getting Started', link: 'getting-started' },
         { text: 'Architecture', link: 'architecture' },
       ],
+    },
+    {
+      text: 'API',
+      // base: '/core/api/',
+      items: typedocSidebar,
     },
     ...FedimintWalletSidebar,
     {
@@ -28,6 +34,11 @@ export function getSidebar() {
         { text: 'Contributing', link: 'contributing' },
         { text: 'Testing', link: 'testing' },
       ],
+    },
+    {
+      text: 'API',
+      base: '/core/api/',
+      items: [{ text: 'Services', link: 'services' }],
     },
   ] satisfies DefaultTheme.Sidebar
 }

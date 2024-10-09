@@ -36,6 +36,9 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.7.0",
+    "typedoc": "^0.26.8",
+    "typedoc-plugin-markdown": "^4.2.9",
+    "typedoc-vitepress-theme": "^1.0.2",
     "typescript": "^5.2.2"
   }
 }

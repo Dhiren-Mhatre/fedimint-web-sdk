@@ -14,6 +14,10 @@ export class BalanceService {
    *
    * @example
    * ```ts
+   * import { FedimintWallet } from '@fedimint/core-web'
+   * const wallet = new FedimintWallet()
+   *
+   * // ---cut---
    * const balance = await wallet.balance.getBalance()
    * ```
    */
@@ -26,6 +30,10 @@ export class BalanceService {
    *
    * @example
    * ```ts
+   * import { FedimintWallet } from '@fedimint/core-web'
+   * const wallet = new FedimintWallet()
+   *
+   * // ---cut---
    * const unsubscribe = wallet.balance.subscribeBalance((balance) => {
    *  console.log(balance)
    * })

@@ -1,0 +1,52 @@
+[
+  {
+    "text": "index",
+    "link": "/core/api/index/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Classes",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "FedimintWallet",
+            "link": "/core/api/index/classes/FedimintWallet.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "services",
+    "link": "/core/api/services/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Classes",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "BalanceService",
+            "link": "/core/api/services/classes/BalanceService.md"
+          },
+          {
+            "text": "FederationService",
+            "link": "/core/api/services/classes/FederationService.md"
+          },
+          {
+            "text": "LightningService",
+            "link": "/core/api/services/classes/LightningService.md"
+          },
+          {
+            "text": "MintService",
+            "link": "/core/api/services/classes/MintService.md"
+          },
+          {
+            "text": "RecoveryService",
+            "link": "/core/api/services/classes/RecoveryService.md"
+          }
+        ]
+      }
+    ]
+  }
+]

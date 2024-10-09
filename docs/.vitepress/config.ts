@@ -11,8 +11,13 @@ export default defineConfig({
   lastUpdated: true,
   markdown: {
     // TODO: Fix version conflicts
-    // @ts-ignore
-    codeTransformers: [transformerTwoslash()],
+    codeTransformers: [
+      // @ts-ignore
+      transformerTwoslash({
+        explicitTrigger: false,
+        onTwoslashError: (error) => console.warn('Twoslash Error:', error),
+      }),
+    ],
   },
   /* prettier-ignore */
   head: [

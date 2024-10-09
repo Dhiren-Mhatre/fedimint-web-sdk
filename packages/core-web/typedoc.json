@@ -1,13 +1,34 @@
 {
   "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
-  "entryPoints": ["src/index.ts"],
+  "entryPoints": ["src/index.ts", "src/services/index.ts"],
   "out": "../../docs/core/api",
   "docsRoot": "../../docs",
   "name": "Core Web",
+  "outputFileStrategy": "members",
+  "membersWithOwnFile": ["Class", "Function"],
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "hideGroupHeadings": true,
+  "hidePageTitle": true,
+  "parametersFormat": "table",
+  "indexFormat": "table",
+  "classPropertiesFormat": "table",
+  "propertyMembersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "useCodeBlocks": true,
+  "tableColumnSettings": {
+    "hideDefaults": true,
+    "hideInherited": true,
+    "hideModifiers": true,
+    "hideOverrides": true,
+    "hideSources": true,
+    "hideValues": true,
+    "leftAlignHeaders": true
+  },
   "visibilityFilters": {
     "protected": false,
     "private": false,
-    "inherited": true,
+    "inherited": false,
     "external": false
   }
 }
