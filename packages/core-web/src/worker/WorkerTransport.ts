@@ -1,11 +1,14 @@
-import type { RpcResponseFull, RpcRequestFull } from '../types'
+import type { RpcResponse, RpcRequest } from '../types'
 import { logger } from '../utils/logger'
-import type { RpcTransport, RpcTransportInit } from '../rpc'
+import type { RpcTransport, RpcTransportFactory } from '../rpc'
 
+/**
+ * An implementation of a FedimintWallet client backend that uses a Web Worker.
+ */
 class WebWorkerTransport implements RpcTransport {
   constructor(private worker: Worker) {}
 
-  sendRequest(request: RpcRequestFull): void {
+  sendRequest(request: RpcRequest): void {
     this.worker.postMessage(request)
   }
 
@@ -14,9 +17,9 @@ class WebWorkerTransport implements RpcTransport {
   }
 }
 
-export class WebWorkerTransportInit implements RpcTransportInit {
+export class WebWorkerTransportInit implements RpcTransportFactory {
   async init(
-    onRpcResponse: (response: RpcResponseFull) => void,
+    onRpcResponse: (response: RpcResponse) => void,
   ): Promise<RpcTransport> {
     const worker = new Worker(new URL('../worker.js', import.meta.url), {
       type: 'module',
@@ -40,7 +43,7 @@ export class WebWorkerTransportInit implements RpcTransportInit {
     })
 
     worker.onmessage = (event: MessageEvent) => {
-      onRpcResponse(event.data as RpcResponseFull)
+      onRpcResponse(event.data as RpcResponse)
     }
     return new WebWorkerTransport(worker)
   }

@@ -1,8 +1,15 @@
-export type RpcRequestFull = {
-  request_id: number
-} & RpcRequest
+import { JSONValue } from './utils'
 
-export type RpcRequest =
+type RpcMessage<T> = T & { request_id: number }
+
+export type RpcRequest<T extends JSONValue = JSONValue> = RpcMessage<
+  RpcRequestPayload<T>
+>
+export type RpcResponse<T extends JSONValue = JSONValue> = RpcMessage<
+  RpcResponsePayload<T>
+>
+
+export type RpcRequestPayload<T extends JSONValue = JSONValue> =
   | {
       type: 'join_federation'
       invite_code: string
@@ -21,21 +28,17 @@ export type RpcRequest =
       client_name: string
       module: string
       method: string
-      payload: any
+      payload: T
     }
   | {
       type: 'cancel_rpc'
       cancel_request_id: number
     }
 
-export type RpcResponseFull = {
-  request_id: number
-} & RpcResponse
-
-export type RpcResponse =
+export type RpcResponsePayload<T extends JSONValue = JSONValue> =
   | {
       type: 'data'
-      data: any
+      data: T
     }
   | {
       type: 'error'
